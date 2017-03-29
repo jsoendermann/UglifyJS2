@@ -24,16 +24,16 @@ var FILES = UglifyJS.FILES = [
     return require.resolve(file);
 });
 
-new Function("MOZ_SourceMap", "exports", FILES.map(function(file){
-    return fs.readFileSync(file, "utf8");
-}).join("\n\n"))(
-    require("source-map"),
-    UglifyJS
-);
+// new Function("MOZ_SourceMap", "exports", FILES.map(function(file){
+//     return fs.readFileSync(file, "utf8");
+// }).join("\n\n"))(
+//     require("source-map"),
+//     UglifyJS
+// );
 
-UglifyJS.AST_Node.warn_function = function(txt) {
-    console.error("WARN: %s", txt);
-};
+// UglifyJS.AST_Node.warn_function = function(txt) {
+//     console.error("WARN: %s", txt);
+// };
 
 function read_source_map(code) {
     var match = /\n\/\/# sourceMappingURL=data:application\/json(;.*?)?;base64,(.*)/.exec(code);
